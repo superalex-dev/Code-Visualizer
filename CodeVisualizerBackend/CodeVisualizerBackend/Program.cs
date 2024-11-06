@@ -14,12 +14,18 @@ builder.Services.AddSingleton<IGitHubService>(sp =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    options.AddPolicy(name: "AllowMyOrigin",
+        policy  =>
+        {
+            policy.WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
 });
 
 var app = builder.Build();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowMyOrigin");
 
 if (app.Environment.IsDevelopment())
 {
