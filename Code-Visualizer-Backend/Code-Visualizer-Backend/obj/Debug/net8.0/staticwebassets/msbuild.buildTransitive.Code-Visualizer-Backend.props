@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Code-Visualizer-Backend.props" />
+</Project>
