@@ -106,3 +106,5 @@ out/
 
 # Visual Studio Code workspace settings
 .vscode/settings.json
+
+node_modules/
